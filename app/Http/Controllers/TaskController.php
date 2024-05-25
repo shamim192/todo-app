@@ -35,6 +35,8 @@ class TaskController extends Controller
             'description' => 'nullable|string',
         ]);
 
+        $validatedData['status'] = 'Incomplete'; // Set the default status
+
         $data = Task::create($validatedData);
 
         if ($data) {
@@ -70,7 +72,8 @@ class TaskController extends Controller
         $validatedData  = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-        ]);
+            'status' => 'required|in:Completed,Incomplete',
+        ]);        
 
         $task = Task::findOrFail($id);
 
@@ -102,16 +105,18 @@ class TaskController extends Controller
         return redirect()->action([self::class, 'index']);
     }
 
-     /**
+    /**
      * toggle the status
      */
 
     public function toggleStatus(Request $request)
     {
         $task = Task::findOrFail($request->id);
-        $task->status = $request->status == 'true' ? 1 : 0;
+
+        // Toggle status based on the current value
+        $task->status = $task->status === 'Completed' ? 'Incomplete' : 'Completed';
         $task->save();
-    
+
         return response()->json(['message' => 'Task status updated successfully.']);
     }
 }

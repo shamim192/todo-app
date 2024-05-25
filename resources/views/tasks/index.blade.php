@@ -18,11 +18,11 @@
         </thead>
         <tbody>
             @foreach($tasks as $task)
-                <tr class="{{ $task->status ? 'completed-task' : 'incomplete-task' }}">
+                <tr class="{{ $task->status === 'Completed' ? 'completed-task' : 'incomplete-task' }}">
                     <td>{{ $task->id }}</td>
                     <td>{{ $task->title }}</td>
                     <td>{{ $task->description }}</td>
-                    <td id="status-text-{{ $task->id }}">{{ $task->status ? 'Completed' : 'Incomplete' }}</td>
+                    <td id="status-text-{{ $task->id }}">{{ $task->status === 'Completed' ? 'Completed' : 'Incomplete' }}</td>
                     <td>
                         <a href="{{ route('tasks.edit', $task) }}" class="btn btn-sm btn-primary"><i class='far fa-edit'></i></a>
                         <form action="{{ route('tasks.destroy', $task) }}" method="POST" style="display: inline;">
@@ -31,7 +31,7 @@
                             <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')"><i class='far fa-trash-alt'></i></button>
                         </form>
                         <div class="form-check form-switch d-inline">
-                            <input class="form-check-input change-status" type="checkbox" id="flexSwitchCheckChecked{{ $task->id }}" {{ $task->status ? 'checked' : '' }} data-id="{{ $task->id }}">
+                            <input class="form-check-input change-status" type="checkbox" id="flexSwitchCheckChecked{{ $task->id }}" {{ $task->status === 'Completed' ? 'checked' : '' }} data-id="{{ $task->id }}">
                         </div>
                     </td>
                 </tr>
