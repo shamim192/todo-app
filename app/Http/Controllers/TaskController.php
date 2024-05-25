@@ -101,4 +101,17 @@ class TaskController extends Controller
 
         return redirect()->action([self::class, 'index']);
     }
+
+     /**
+     * toggle the status
+     */
+
+    public function toggleStatus(Request $request)
+    {
+        $task = Task::findOrFail($request->id);
+        $task->status = $request->status == 'true' ? 1 : 0;
+        $task->save();
+    
+        return response()->json(['message' => 'Task status updated successfully.']);
+    }
 }

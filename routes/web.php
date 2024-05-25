@@ -7,4 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::put('/tasks/toggle-status', [TaskController::class, 'toggleStatus'])->name('tasks.toggleStatus');
 Route::resource('tasks', TaskController::class);
