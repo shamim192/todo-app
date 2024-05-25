@@ -38,7 +38,7 @@ This is a simple to-do list application built with Laravel.
    DB_DATABASE=/absolute/path/to/database/database.sqlite
    ```
 
-   Replace /absolute/path/to/your/laravel/project with the absolute path to your Laravel project directory.
+   Replace /absolute/path/to with the absolute path to your Laravel project directory.
    Enclose the path in double quotes to ensure it is parsed correctly. like this 
    ```dotenv
    DB_DATABASE="F:/Personal Project/todo-app/database/database.sqlite"
@@ -65,7 +65,7 @@ This is a simple to-do list application built with Laravel.
 
 # Usage
 
-- Navigate to the homepage to view the list of tasks.
+- Navigate to the /tasks to view the list of tasks.
 - Click on "Create New Task" to add a new task.
 - Click on "Edit" to update a task's details.
 - Click on "Delete" to remove a task.
