@@ -12,9 +12,12 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        .completed {
-            text-decoration: line-through;
-            color: gray;
+        .completed-task {
+            background-color: #d4edda;
+        }
+
+        .incomplete-task {
+            background-color: #f8d7da;
         }
     </style>
 </head>
@@ -47,7 +50,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    
+
     @stack('scripts')
 </body>
 

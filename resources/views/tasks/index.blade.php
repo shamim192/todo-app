@@ -18,7 +18,7 @@
         </thead>
         <tbody>
             @foreach($tasks as $task)
-                <tr>
+                <tr class="{{ $task->status ? 'completed-task' : 'incomplete-task' }}">
                     <td>{{ $task->id }}</td>
                     <td>{{ $task->title }}</td>
                     <td>{{ $task->description }}</td>
@@ -47,6 +47,7 @@
                 let isChecked = $(this).is(':checked');
                 let id = $(this).data('id');
                 let statusText = isChecked ? 'Completed' : 'Incomplete';
+                let taskRow = $('#status-text-' + id).closest('tr');
 
                 $.ajax({
                     url: "{{ route('tasks.toggleStatus') }}",
@@ -58,6 +59,11 @@
                     },
                     success: function(data) {
                         $('#status-text-' + id).text(statusText);
+                        if (isChecked) {
+                            taskRow.removeClass('incomplete-task').addClass('completed-task');
+                        } else {
+                            taskRow.removeClass('completed-task').addClass('incomplete-task');
+                        }
                         toastr.success(data.message);
                     },
                     error: function(xhr, status, error) {

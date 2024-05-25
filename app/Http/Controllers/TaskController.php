@@ -43,7 +43,7 @@ class TaskController extends Controller
             session()->flash('errorMessage', 'Task saving failed!');
         }
 
-        return redirect()->action([self::class, 'create']);
+        return redirect()->action([self::class, 'index']);
     }
 
     /**
