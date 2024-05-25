@@ -1,6 +1,6 @@
 # To-Do List Application
 
-This is a simple to-do list application built with Laravel.
+This is a simple To-Do List application built using Laravel. It allows users to create, read, update, and delete tasks. Tasks can be marked as completed or incomplete, and basic styling is implemented to distinguish between completed and incomplete tasks.
 
 # Features
 - Create, read, update, and delete tasks.
